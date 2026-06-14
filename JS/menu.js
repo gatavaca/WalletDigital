@@ -11,8 +11,8 @@ function getBalance() {
 
 function formatCurrency(amount) {
   return amount.toLocaleString('es-AR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
   });
 }
 

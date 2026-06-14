@@ -19,7 +19,7 @@ function getBalance() {
  * @param {number} amount - Nuevo saldo a guardar
  */
 function saveBalance(amount) {
-  localStorage.setItem(BALANCE_KEY, amount.toFixed(2));
+  localStorage.setItem(BALANCE_KEY, Math.round(amount).toString());
 }
 
 // ── FUNCIÓN AUXILIAR: Guardar transacción en el historial ──
@@ -41,7 +41,7 @@ function saveTransaction(description, amount, type) {
   transactions.unshift({
     date: dateStr,
     description: description,
-    amount: amount,
+    amount: Math.round(amount),
     type: type
   });
   
@@ -74,7 +74,7 @@ function deposit(amount) {
   }
 
   const currentBalance = getBalance();
-  const newBalance = currentBalance + amount;
+  const newBalance = currentBalance + Math.round(amount);
   saveBalance(newBalance);
   
   // Guardamos la transacción en el historial
@@ -91,12 +91,12 @@ function deposit(amount) {
 /**
  * Formatea un número como moneda con separadores de miles.
  * @param {number} amount
- * @returns {string} Ejemplo: "1.500,00"
+ * @returns {string} Ejemplo: "1.500"
  */
 function formatCurrency(amount) {
   return amount.toLocaleString('es-AR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
   });
 }
 

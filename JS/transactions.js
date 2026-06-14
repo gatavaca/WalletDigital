@@ -22,8 +22,8 @@ function getTransactions() {
 function formatCurrency(amount) {
   const absoluteAmount = Math.abs(amount);
   return absoluteAmount.toLocaleString('es-AR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
   });
 }
 

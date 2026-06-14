@@ -13,7 +13,7 @@ function getBalance() {
 
 // ── 2. GUARDAR SALDO ────────────────────────────────────────
 function saveBalance(amount) {
-  localStorage.setItem(BALANCE_KEY, amount.toFixed(2));
+  localStorage.setItem(BALANCE_KEY, Math.round(amount).toString());
 }
 
 // ── 3. GUARDAR TRANSACCIÓN EN HISTORIAL ─────────────────────
@@ -35,7 +35,7 @@ function saveTransaction(description, amount, type) {
   transactions.unshift({
     date: dateStr,
     description: description,
-    amount: -amount, // Se guarda negativo para egresos
+    amount: -Math.round(amount), // Se guarda negativo para egresos
     type: type
   });
   
@@ -55,8 +55,8 @@ function getInitialTransactions() {
 // ── 4. FORMATEAR MONEDA ─────────────────────────────────────
 function formatCurrency(amount) {
   return amount.toLocaleString('es-AR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
   });
 }
 

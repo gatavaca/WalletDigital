@@ -16,7 +16,7 @@
     <!-- Visualización del Saldo Actual -->
     <div class="text-center mb-4 p-3 rounded" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
       <small class="text-secondary d-block mb-1">Saldo Disponible</small>
-      <span id="currentBalance" class="fs-3 fw-bold text-white">$0,00</span>
+      <span id="currentBalance" class="fs-3 fw-bold text-white">$150.000</span>
     </div>
 
     <form id="sendForm">
@@ -69,12 +69,16 @@
         </div>
         
         <div class="d-flex gap-2 mt-4">
-          <button type="button" id="closeModalBtn" class="wallet-btn-secondary mt-0 w-50">Cancelar</button>
-          <button type="submit" class="wallet-btn w-50">Guardar</button>
+          <button id="transa" type="submit" class="wallet-btn w-50">Guardar</button>
         </div>
       </form>
     </div>
   </div>
+
+   <!-- Mensaje de redireccionamiento-->
+  <script>
+    document.getElementById("transa").addEventListener("click", () => { alert("Redirigiendo a: Enviar dinero") });
+  </script>
 
   <!-- Vinculación del script con el validador y flujo de envío -->
   <script src="JS/sendmoney.js"></script>
