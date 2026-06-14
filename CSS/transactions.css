@@ -1,0 +1,103 @@
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #1e1b4b 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #f3f4f6;
+  padding: 40px 0;
+}
+
+.wallet-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wallet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(99, 102, 241, 0.15);
+}
+
+.wallet-title {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #ffffff, #c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.wallet-hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 1.5rem 0;
+}
+
+.wallet-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #e5e7eb !important;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.wallet-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+/* Custom Table Styling */
+.table-custom {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  margin-bottom: 2rem;
+}
+
+.table-custom th {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  background: transparent !important;
+  padding: 12px 8px;
+}
+
+.table-custom td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  vertical-align: middle;
+  background: transparent !important;
+  color: #ffffff;
+  padding: 12px 8px;
+}
+
+.table-custom td.text-danger {
+  color: #f87171 !important;
+}
+
+.table-custom td.text-success {
+  color: #4ade80 !important;
+}
+
+.table-custom tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.badge-amount {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
