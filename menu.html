@@ -9,7 +9,7 @@
   <link class="bootstrap-css" rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap">
-  <link rel="stylesheet" href="CSS/menu.css">
+  <link rel="stylesheet" href="./css/menu.css">
 </head>
 
 <body>
@@ -93,40 +93,10 @@
 
   <!-- Script de Bootstrap 5 para el menú móvil -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Script de sincronización de saldo -->
-  <script src="JS/menu.js"></script>
+  
+  <!-- Script de sincronización de saldo y para la transición de redireccionamiento-->
+  <script src="./js/menu.js"></script>
 
-  <!-- Script para la transición de redireccionamiento al depósito -->
-  <script>
-    document.getElementById("botondedeposito").addEventListener("click", redireccionarA);
-    document.getElementById("botondeenvio").addEventListener("click", redireccionarA);
-    document.getElementById("botondehistorial").addEventListener("click", redireccionarA);
-
-    function redireccionarA(event) {
-      event.preventDefault(); // Evita que se navegue de inmediato
-
-      const id = event.currentTarget.id;
-      let mensaje = "";
-      let url = "";
-
-      if (id === "botondedeposito") {
-        mensaje = "Redireccionando a depósito";
-        url = "deposit.html";
-      } else if (id === "botondeenvio") {
-        mensaje = "Redireccionando a envío";
-        url = "sendmoney.html";
-      } else if (id === "botondehistorial") {
-        mensaje = "Redireccionando a historial...";
-        url = "transactions.html";
-      }
-
-      // Ejecutamos la acción si se encontró una URL válida
-      if (url !== "") {
-        alert(mensaje);
-        window.location.href = url;
-      }
-    }
-  </script>
 </body>
 
 </html>

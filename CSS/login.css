@@ -87,3 +87,16 @@ body {
   color: #9ca3af;
   font-size: 0.8rem;
 }
+
+/* Icono ilustrativo de la billetera */
+.icon-wrapper {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
