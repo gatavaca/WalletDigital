@@ -171,3 +171,40 @@ body {
 .modal-overlay.active .modal-content-custom {
   transform: scale(1);
 }
+
+/* Custom jQuery UI Autocomplete Styling */
+.ui-autocomplete {
+  background: rgba(20, 24, 40, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  font-family: 'Outfit', sans-serif !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 6px !important;
+  z-index: 1100 !important;
+}
+
+.ui-menu-item {
+  border: none !important;
+  border-radius: 8px !important;
+  margin-bottom: 2px !important;
+}
+
+.ui-menu-item-wrapper {
+  color: #e5e7eb !important;
+  padding: 8px 12px !important;
+  font-size: 0.9rem !important;
+  transition: all 0.2s /ease !important;
+  border: none !important;
+}
+
+.ui-menu-item-wrapper:hover,
+.ui-menu-item-wrapper.ui-state-active {
+  background: rgba(99, 102, 241, 0.25) !important;
+  border: none !important;
+  color: #ffffff !important;
+}

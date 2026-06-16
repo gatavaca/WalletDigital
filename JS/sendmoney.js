@@ -179,6 +179,9 @@ if (addContactForm) {
     saveContacts(contacts);
     
     renderContacts(); // Refrescar lista de contactos
+    if (typeof initAutocomplete === 'function') {
+      initAutocomplete(); // Refrescar la fuente de autocompletado
+    }
     closeModal();     // Ocultar modal
     
     alert(`¡Contacto Agregado!\n\n${newContact.name} se ha añadido exitosamente a tu agenda.`);
@@ -237,4 +240,62 @@ if (sendForm) {
 document.addEventListener('DOMContentLoaded', () => {
   updateBalanceDisplay();
   renderContacts();
+});
+
+// ── 9. AUTOCOMPLETAR Y FILTRAR CON JQUERY / JQUERY UI ─────────────────
+function initAutocomplete() {
+  const contacts = getContacts();
+  
+  // Mapeamos los contactos en el formato que requiere jQuery UI Autocomplete
+  const availableTags = contacts.map(c => ({
+    label: `${c.name} - CBU: ${c.cbu} (${c.bank})`,
+    value: c.name,
+    original: c
+  }));
+  
+  // Inicializa o destruye e inicializa el plugin de autocompletado en el buscador
+  const $search = $('#searchContact');
+  if ($search.length) {
+    if ($search.data('ui-autocomplete')) {
+      $search.autocomplete('destroy');
+    }
+    $search.autocomplete({
+      source: availableTags,
+      select: function(event, ui) {
+        const selectedContact = ui.item.original;
+        
+        // Al seleccionar, marcamos como activo el elemento en la lista visual de contactos
+        $('#contactList .list-group-item-custom').each(function() {
+          const nameText = $(this).find('.contact-name').text().trim();
+          if (nameText === selectedContact.name) {
+            $('#contactList .list-group-item-custom').removeClass('active');
+            $(this).addClass('active');
+          }
+        });
+      }
+    });
+  }
+}
+
+// Inicialización de jQuery
+$(document).ready(function() {
+  // Inicializamos el autocompletado de jQuery UI
+  initAutocomplete();
+  
+  // Filtrar la lista de contactos en tiempo real mientras el usuario escribe en el input
+  $('#searchContact').on('input keyup', function() {
+    const query = $(this).val().toLowerCase().trim();
+    
+    $('#contactList .list-group-item-custom').each(function() {
+      const name = $(this).find('.contact-name').text().toLowerCase();
+      const details = $(this).find('.contact-details').text().toLowerCase();
+      
+      // Si coincide el nombre o los detalles (CBU, Alias, Banco), se muestra; si no, se oculta
+      if (name.includes(query) || details.includes(query)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  });
 });
